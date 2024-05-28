@@ -11,8 +11,8 @@ $sql = "SELECT * FROM kullanicilar WHERE kullanici_ad='$username' AND kullanici_
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    // Giriş başarılı ise index.php'ye yönlendirme
-    header("Location: index.php");
+    // Giriş başarılı ise bahce.php'ye yönlendirme
+    header("Location: bahce.php");
 } else {
     // Giriş başarısız ise hata mesajı gösterme
     echo "Kullanıcı adı veya şifre yanlış.";
