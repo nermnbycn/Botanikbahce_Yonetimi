@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Anamakine: 127.0.0.1
--- Üretim Zamanı: 28 May 2024, 18:19:16
--- Sunucu sürümü: 10.4.32-MariaDB
--- PHP Sürümü: 8.2.12
+-- Anamakine: sql111.infinityfree.com
+-- Üretim Zamanı: 28 May 2024, 15:40:16
+-- Sunucu sürümü: 10.4.17-MariaDB
+-- PHP Sürümü: 7.2.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Veritabanı: `botanik_bahce`
+-- Veritabanı: `if0_36633303_botanik`
 --
 
 -- --------------------------------------------------------
@@ -34,14 +35,15 @@ CREATE TABLE `bitkiler` (
   `sulama_sikligi` varchar(100) DEFAULT NULL,
   `gubreleme_periyodu` varchar(100) DEFAULT NULL,
   `bitki_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Tablo döküm verisi `bitkiler`
 --
 
 INSERT INTO `bitkiler` (`bitki_ad`, `bitki_konum`, `isik_ihtiyaci`, `sulama_sikligi`, `gubreleme_periyodu`, `bitki_id`) VALUES
-('', 'Sera', 'Tam_Gunes', 'Gunluk', 'Ilkbahar-Sonbahar', 10);
+('papatya', 'Bahce_Bolgesi', 'Tam_Gunes', 'Gunluk', 'Ilkbahar-Sonbahar', 2),
+('gÃ¼l', 'Sus_Havuzu', 'Tam_Gunes', 'Haftada_Bir', 'Yaz-KÄ±s', 3);
 
 -- --------------------------------------------------------
 
@@ -55,7 +57,14 @@ CREATE TABLE `etkinlikler` (
   `etkinlik_konu` varchar(100) DEFAULT NULL,
   `katilimci_sayisi` int(11) DEFAULT NULL,
   `etkinlik_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Tablo döküm verisi `etkinlikler`
+--
+
+INSERT INTO `etkinlikler` (`etkinlik_ad`, `etkinlik_tarihi`, `etkinlik_konu`, `katilimci_sayisi`, `etkinlik_id`) VALUES
+('Ä°lkokul Gezisi', '2024-05-09', 'Bitki_Sergileri', 10, 1);
 
 -- --------------------------------------------------------
 
@@ -64,19 +73,18 @@ CREATE TABLE `etkinlikler` (
 --
 
 CREATE TABLE `kullanicilar` (
-  `kullanici_id` int(11) NOT NULL,
-  `kullanici_ad` varchar(255) NOT NULL,
-  `kullanici_sifre` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `kullanici_id` int(11) DEFAULT NULL,
+  `kullanici_ad` varchar(255) DEFAULT NULL,
+  `kullanici_sifre` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Tablo döküm verisi `kullanicilar`
 --
 
 INSERT INTO `kullanicilar` (`kullanici_id`, `kullanici_ad`, `kullanici_sifre`) VALUES
-(2, 'nermin', 'A4tech123.'),
-(3, '', ''),
-(4, 'nrmnn4', 'bn');
+(NULL, 'nermin', '123'),
+(NULL, 'nermin', 'A4tech123.');
 
 -- --------------------------------------------------------
 
@@ -91,14 +99,7 @@ CREATE TABLE `personeller` (
   `personel_email` varchar(100) DEFAULT NULL,
   `personel_tel` varchar(11) DEFAULT NULL,
   `personel_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Tablo döküm verisi `personeller`
---
-
-INSERT INTO `personeller` (`personel_ad`, `personel_soyad`, `personel_gorev`, `personel_email`, `personel_tel`, `personel_id`) VALUES
-('Rabia', 'Kamış', 'Rehberlik', 'nerminbaycan7@gmail.com', '123456', 5);
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -114,7 +115,7 @@ CREATE TABLE `ziyaretciler` (
   `ziyaretci_tel` varchar(11) DEFAULT NULL,
   `ziyaretci_yas` int(11) DEFAULT NULL,
   `ziyaretci_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -131,12 +132,6 @@ ALTER TABLE `bitkiler`
 --
 ALTER TABLE `etkinlikler`
   ADD PRIMARY KEY (`etkinlik_id`);
-
---
--- Tablo için indeksler `kullanicilar`
---
-ALTER TABLE `kullanicilar`
-  ADD PRIMARY KEY (`kullanici_id`);
 
 --
 -- Tablo için indeksler `personeller`
@@ -158,31 +153,25 @@ ALTER TABLE `ziyaretciler`
 -- Tablo için AUTO_INCREMENT değeri `bitkiler`
 --
 ALTER TABLE `bitkiler`
-  MODIFY `bitki_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `bitki_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `etkinlikler`
 --
 ALTER TABLE `etkinlikler`
-  MODIFY `etkinlik_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- Tablo için AUTO_INCREMENT değeri `kullanicilar`
---
-ALTER TABLE `kullanicilar`
-  MODIFY `kullanici_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `etkinlik_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `personeller`
 --
 ALTER TABLE `personeller`
-  MODIFY `personel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `personel_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `ziyaretciler`
 --
 ALTER TABLE `ziyaretciler`
-  MODIFY `ziyaretci_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ziyaretci_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
