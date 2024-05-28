@@ -5,7 +5,7 @@ $password = "DkR83oy07bqJ";
 $database = "if0_36633303_botanik";
 
 // Veritabanına bağlanma
-$conn = new mysqli($localhost, $username, $password, $database);
+$conn = new mysqli($servername, $username, $password, $database);
 
 // Bağlantıyı kontrol etme
 if ($conn->connect_error) {
