@@ -24,7 +24,7 @@ Videoda giriş yaptıktan sonra index.php adresine yönlendirme olduğunu söyl�
 ## Kodları Çalıştırma
 Kodları kendi bilgisarınızda çalıştırmak için xampp klasöründen htdocsun içindeki tüm dosyaları silip bir klasör oluşturun ve kodları onun içine atın. localhost/PlantArea/index.php şeklinde siteyi çalıştırabilirsiniz. (Örnek olarak kullanıcı adı:nermin sifre:A4tech123.) Eğer ki örnek bilgileri kullanmak istemiyorsanız sisteme kayıt olup daha sonrasında giriş yapıp localhost/PlantArea/bahce.php sayfasına gidebilirsiniz (Giriş başarılı olduğunda yönlendirme yapılacak). Daha sonrasında videoda belirtildiği gibi veri ekleme/silme/güncelleme kısımlarını kullanabilirsiniz.
 
-##Link Erişimi
+## Link Erişimi
 botanikbahce.kesug.com (Bu adresten erişim sağlayamazsanız aşağıdaki linki deneyebilirsiniz)
 www.botanikbahce.kesug.com
 
