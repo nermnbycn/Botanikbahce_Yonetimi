@@ -23,7 +23,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ms-auto font-1">
-            <div><a class="nav-link py-2 px-3 fw-semibold" href="#">Anasayfa</a></div>
+            <div><a class="nav-link py-2 px-3 fw-semibold" href="https://github.com/nermnbycn/Botanikbahce_Yonetimi">Github</a></div>
             <div><a class="nav-link py-2 px-3 fw-semibold" href="display_plants.php">Bitkiler</a></div>
             <div><a class="nav-link px-3 py-2 fw-semibold" href="display_events.php">Etkinlikler</a></div>
             <div><a class="nav-link py-2 px-3 fw-semibold" href="display_visitors.php">Ziyaretçiler</a></div>
@@ -206,6 +206,7 @@
 </div>
 </form>
 
+
   <script>
     document.getElementById("addPlantButton").addEventListener("click", function() {
         // Bitki ekleme formunu göster
@@ -248,4 +249,7 @@
    
 </body>
 </html>
+
+
+ 
 
